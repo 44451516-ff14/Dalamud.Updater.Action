@@ -11,7 +11,7 @@ $tagName = $response.tag_name
 $runtimeVersion = "8.0.0"
 
 # 生成 DownloadUrl
-$downloadUrl = "https://github.com/AtmoOmen/Dalamud/releases/download/25-03-12-01/$tagName"
+$downloadUrl = "https://github.com/AtmoOmen/Dalamud/releases/download/$tagName/latest.7z"
 
 # 创建 JSON 对象
 $jsonObject = @{
