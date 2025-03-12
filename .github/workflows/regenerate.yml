@@ -1,29 +1,24 @@
-name: Regenerate PluginMaster
+name: Run PowerShell Script
+
 on:
-  workflow_dispatch:
-concurrency: regenerate
+  workflow_dispatch: # 手动触发
+  schedule:
+    - cron: '0 0 * * *' # 每天午夜运行
 
 jobs:
-  generate:
-    name: Regenerate PluginMaster
-    runs-on: windows-2019
+  run-powershell-script:
+    runs-on: windows-latest # 使用 Windows 环境运行 PowerShell 脚本
+
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - uses: actions/checkout@v1
-      - name: Run generator
-        run: .\GetAction.ps1
-      - name: Commit files
-        continue-on-error: true
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run PowerShell script
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Regenerate PluginMaster" -a
-      - name: Push changes
-        continue-on-error: true
-        uses: ad-m/github-push-action@master
+          .\generate_version_info.ps1
+
+      - name: Upload JSON as artifact
+        uses: actions/upload-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.extract_branch.outputs.branch }}
+          name: version_info.json
+          path: version_info.json
