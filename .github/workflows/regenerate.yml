@@ -18,7 +18,7 @@ jobs:
           .\generate_version_info.ps1
 
       - name: Upload JSON as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: version_info.json
           path: version_info.json
