@@ -1,5 +1,5 @@
 {
-  "AssemblyVersion": "25-03-15-01",
   "DownloadUrl": "https://github.com/AtmoOmen/Dalamud/releases/download/25-03-15-01/latest.7z",
-  "RuntimeVersion": "8.0.0"
+  "RuntimeVersion": "8.0.0",
+  "AssemblyVersion": "25-03-15-01"
 }
