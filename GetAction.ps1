@@ -8,7 +8,7 @@ $response = Invoke-RestMethod -Uri $apiUrl -Method Get
 $tagName = $response.tag_name
 
 # 定义 RuntimeVersion
-$runtimeVersion = "8.0.0"
+$runtimeVersion = "9.0.0"
 
 # 生成 DownloadUrl
 $downloadUrl = "https://github.com/AtmoOmen/Dalamud/releases/download/$tagName/latest.7z"
