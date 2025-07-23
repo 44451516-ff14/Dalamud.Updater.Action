@@ -3,7 +3,7 @@ name: Run PowerShell Script and Commit Version Info
 on:
   workflow_dispatch: # 手动触发
   schedule:
-    - cron: '*/30 * * * *' # 每半小时运行一次
+      - cron: '0 * * * *' # 修改为每小时运行一次
 jobs:
   run-powershell-script:
     runs-on: windows-latest # 使用 Windows 环境运行 PowerShell 脚本
