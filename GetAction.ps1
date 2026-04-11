@@ -1,5 +1,5 @@
 # 定义 API URL
-$apiUrl = "https://api.github.com/repos/AtmoOmen/Dalamud/releases/latest"
+$apiUrl = "https://api.github.com/repos/Dalamud-DailyRoutines/Dalamud/releases/latest"
 
 # 发送 HTTP 请求获取最新版本信息
 $response = Invoke-RestMethod -Uri $apiUrl -Method Get
@@ -11,7 +11,7 @@ $tagName = $response.tag_name
 $runtimeVersion = "10.0.0.1"
 
 # 生成 DownloadUrl
-$downloadUrl = "https://github.com/AtmoOmen/Dalamud/releases/download/$tagName/latest.7z"
+$downloadUrl = "https://github.com/Dalamud-DailyRoutines/Dalamud/releases/download/$tagName/latest.7z"
 
 # 创建 JSON 对象
 $jsonObject = @{
